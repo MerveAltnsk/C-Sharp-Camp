@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Intro.Business;
+using Intro.DataAccess.Concretes;
 using Intro.Entities;
 
 Console.WriteLine("Hello, World!");
@@ -26,11 +27,13 @@ else
 
 Console.WriteLine();
 
-CourseManager courseManager = new ();                // yeni syntaxla bu şekilde de new yaptık diyebiliyoruz 
-                      
-                                                    // new dediğim anda o sınıfın constructor u çalışır
-Course[] courses2 = courseManager.GetAll();
-for (int i = 0; i < courses2.Length; i++)
+
+
+
+CourseManager courseManager = new(new EfCourseDal());                
+                                          
+List<Course> courses2 = courseManager.GetAll();
+for (int i = 0; i < courses2.Count; i++)
 {
     Console.WriteLine(courses2[i].Name + "/" + courses2[i].Price);
 }
@@ -41,7 +44,7 @@ for (int i = 0; i < courses2.Length; i++)
 Console.WriteLine();
 Console.WriteLine("Kod bitti");
 Console.WriteLine();
-Console.WriteLine();
+
 
 
 

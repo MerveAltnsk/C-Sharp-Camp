@@ -1,4 +1,5 @@
-﻿using Intro.DataAccess.Concretes;
+﻿using Intro.DataAccess.Abstracts;
+using Intro.DataAccess.Concretes;
 using Intro.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,14 +10,20 @@ using System.Threading.Tasks;
 namespace Intro.Business;
 
 public class CourseManager                         // operasyon sınıfı operasyonlar düzenleniyor yani fonksiyonlar sınıfı da diyebiliriz
-{
-    privateCourseDal _courseDal;
+{   
+    //dependency injection
+    private readonly ICourseDal _courseDal;
+
+    public CourseManager(ICourseDal courseDal)
+    {
+        _courseDal = courseDal;
+    }
 
     public List<Course> GetAll()                          //Bu bloğa metot deniyor basit bir simülasyon  
     {
         //Business rules ,iş kurallarını yazıcaz
  
 
-        return courseDal.GetAll();                                            
+        return _courseDal.GetAll();                                            
     }
 }

@@ -1,8 +1,9 @@
-﻿using Intro.Entities;
+﻿using Intro.DataAccess.Abstracts;
+using Intro.Entities;
 
 namespace Intro.DataAccess.Concretes;
 
-public class EfCourseDal              //Dal Data Access Layer demek  - Dao - Repository gibi isimler olabilir veritabanıyla çalışılacak demektir
+public class EfCourseDal: ICourseDal         //Dal Data Access Layer demek  - Dao - Repository gibi isimler olabilir veritabanıyla çalışılacak demektir
 {
     List<Course> courses;
     public EfCourseDal()              //gerçek veritabanı olmadığı için constructor oluşturduk kısa yol ctor enter

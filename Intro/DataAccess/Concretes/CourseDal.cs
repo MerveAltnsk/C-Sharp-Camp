@@ -1,4 +1,5 @@
-﻿using Intro.Entities;
+﻿using Intro.DataAccess.Abstracts;
+using Intro.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Intro.DataAccess.Concretes;
 
-public class CourseDal              //Dal Data Access Layer demek  - Dao - Repository gibi isimler olabilir veritabanıyla çalışılacak demektir
+public class CourseDal: ICourseDal        //Dal Data Access Layer demek  - Dao - Repository gibi isimler olabilir veritabanıyla çalışılacak demektir
 {
     List<Course> courses;
-    public CourseDal()              //gerçek veritabanı olmadığı için constructor oluşturduk kısa yol ctor enter
+    public CourseDal()                  //gerçek veritabanı olmadığı için constructor oluşturduk kısa yol ctor enter
     {
         Course course1 = new Course();
         course1.Id = 1;
